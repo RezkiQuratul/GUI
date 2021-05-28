@@ -1,101 +1,113 @@
 package GUI;
 
-import javax.swing.*;
-import java.io.StringReader;
 
 public class Mahasiswa {
-    private String Nama;
-    private String Nim;
-    private String JP;
-    private String TM;
-    private String Fakul;
-    private String Jur;
-    private String JK;
-    private String NoUr;
 
-    public Mahasiswa() {
-    }
+        private String nama;
+        private String nim;
 
-    public Mahasiswa(String Nama, String Nim, String JP, String TM, String Fakul, String Jur, String JK, String NoUr) {
-        this.Nama = Nama;
-        this.Nim = Nim;
-        this.JP = JP;
-        this.TM = TM;
-        this.Fakul = Fakul;
-        this.Jur = Jur;
-        this.JK = JK;
-        this.NoUr = NoUr;
-    }
+        public Mahasiswa() {
+        }
 
-    public String getNama() {
-        return Nama;
-    }
-    public void setNama(String Nama) {
-        this.Nama = Nama;
-    }
+        public Mahasiswa(String nama, String nim) {
+            this.nama = nama;
+            this.nim = nim;
+        }
 
-    public String getNim() {
-        return Nim;
-    }
-    public void setNim(String Nim) {
-        this.Nim = Nim;
-    }
+        public String getnama() {
+                return nama;
+        }
+        public void setnama(String nama) {
+                this.nama = nama;
+        }
 
-    public String getJP() {
-        return JP;
-    }
-    public void setJP(String JP) {
-        this.JP = JP;
-    }
+        public String getnim() {
+                return nim;
+        }
+        public void setnim(String nim) {
+                this.nim = nim;
+        }
 
-    public String getTM() {
-        return TM;
-    }
-    public void setTM(String TM) {
-        this.TM = TM;
-    }
+        public String getJenjangPendidikan() {
+                char kodeJP = nim.charAt(0);
+                if (kodeJP == '1') {
+                        return " S1 (Sarjana)";
+                }else if (kodeJP == '2') {
+                        return " S2 (Magister)";
+                }else if (kodeJP == 3) {
+                        return " S3 (Doktor)";
+                }
+                return "Program Selesai";
+        }
 
-    public String getFakul() {
-        return Fakul;
-    }
-    public void setFakul(String Fakul) {
-        this.Fakul = Fakul;
-    }
+        public String getTahunMasuk() {
+                char kodeTM = nim.charAt(1);
+                char kodeTM2 = nim.charAt(2);
+                return "20" + kodeTM+kodeTM2;
+        }
 
-    public String getJur() {
-        return Jur;
-    }
-    public void setJur(String Jur) {
-        this.Jur = Jur;
-    }
+        public String getFakultas() {
+                char kodeFKT = nim.charAt(3);
+                if (kodeFKT == '1') {
+                        return "Tarbiyah dan Keagamaan";
+                }else if (kodeFKT == '2') {
+                        return "Syariat dan Keguruan";
+                }else if (kodeFKT == '3') {
+                        return "Ushuluddin";
+                }else if (kodeFKT == '4') {
+                        return "Dakwah dan Komunikasi";
+                }else if (kodeFKT == '5') {
+                        return "Sains dan Teknologi";
+                }else if (kodeFKT == '6') {
+                        return "Psikologi";
+                }else if (kodeFKT == '7') {
+                        return "Ekonomi dan Ilmu Sosial";
+                }else if (kodeFKT == '8') {
+                        return "Pertanian dan Perternakan";
+                }
+                return "Program Selesai";
+        }
 
-    public String getJK() {
-        return JK;
-    }
-    public void setJK(String JK) {
-        this.JK = JK;
-    }
+        public String getJurusan() {
 
-    public String getNoUr() { return NoUr; }
-    public void setNoUr(String NoUr) { this.NoUr = NoUr; }
+                char kodeJUR = nim.charAt(5);
+                if (kodeJUR == '1') {
+                        return "Teknik Informatika";
+                }else if (kodeJUR == '2') {
+                        return "Teknik Industri";
+                }else if (kodeJUR == '3') {
+                        return "Sisitem Informasi";
+                }else if (kodeJUR == '4') {
+                        return "Matematika";
+                }else if (kodeJUR == '5') {
+                        return "Teknik Elektro";
+                }
+                return "Program Selesai";
+        }
 
-    @Override
-    public String toString() {
-        final String Biodata = "Data Mahasiswa : " + "\n" + "\n" +
-                "Nama\t\t= " + Nama + "\n" +
-                "Nim\t\t= " + Nim + "\n" +
-                "Jenjang Pendidikan\t= " + JP + "\n" +
-                "Tahun Masuk\t\t= " + TM + "\n" +
-                "Fakultas\t\t= " + Fakul + "\n" +
-                "Jurusan\t\t= " + Jur + "\n" +
-                "Jenis Kelamin\t\t= " + JK + "\n" +
-                "Nomor Urut\t\t= " + NoUr;
+        public String getJenisKelamin () {
+                char kodeJK = nim.charAt(6);
+                if (kodeJK == '1') {
+                        return "Laki-Laki";
+                }else if (kodeJK == '2') {
+                        return "Perempuan";
+                }
+                return "Program Selesai";
+        }
 
-        return Biodata;
+        public String getNomorUrutMHS() {
+                char kodeNUMHS = nim.charAt(7);
+                char kodeNUMHS2 = nim.charAt(8);
+                char kodeNUMHS3 = nim.charAt(9);
+                char kodeNUMHS4 = nim.charAt(10);
 
+                return "" + kodeNUMHS+kodeNUMHS2+kodeNUMHS3+kodeNUMHS4;
+        }
+        
 
-
-    }
-
+        @Override
+        public String toString() {
+                return "Mahasiswa : " + "\n";
+        }
 
 }
